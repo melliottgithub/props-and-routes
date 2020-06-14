@@ -10,6 +10,7 @@ import {
 import Contact from "./components/Contact";
 import Us from "./components/Us";
 import InitialPage from "./components/InitialPage";
+import User from "./components/User";
 
 function App() {
   return (
@@ -22,21 +23,28 @@ function App() {
           <Link to="/us" className="btn btn-dark">
             Us
           </Link>
-          <NavLink to="/contact" className="btn btn-dark" activeClassName='active'>
+          <NavLink
+            to="/contact"
+            className="btn btn-dark"
+            activeClassName="active"
+          >
             Contact
           </NavLink>
         </div>
-       
+
         <hr />
         <Switch>
-          <Route exact path="/">
-            <InitialPage></InitialPage>
+          <Route path="/us/:id">
+            <User />
           </Route>
           <Route path="/contact">
             <Contact></Contact>
           </Route>
           <Route path="/us">
             <Us></Us>
+          </Route>
+          <Route exact path="/">
+            <InitialPage></InitialPage>
           </Route>
         </Switch>
       </div>
